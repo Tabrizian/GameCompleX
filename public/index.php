@@ -10,7 +10,7 @@
 <form action="process.php" method="post" role="form">
     <div class="form-group">
     <textarea class="form-control" row="5" name="sql"></textarea>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-danger">Submit</button>
     </div>
 </form>
 </div>
