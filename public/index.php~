@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/bootstarp.css">
+<link rel="stylesheet" href="css/bootstarp.min.css">
 <title>Game Complex Website!</title>
 </head>
 <body>

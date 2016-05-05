@@ -1,19 +1,27 @@
+<html>
+<head>
+<link rel="stylesheet" href="css/bootstrap.min.css" >
+<link rel="stylesheet" href="css/grid.css" >
+</head>
+<body>
+<div class="container">
 <?php
 require_once('../includes/database.php');
 if(isset($_POST['sql'])) {
-    echo "<table>";
     $data_set = $db->query($_POST['sql']);
     while($row = $db->fetch_assoc($data_set)) {
-        echo "<tr>";
+        echo "<div class=\"row\">";
         foreach($row as $item=>$value) {
-            echo "<td>";
+            echo "<div class=\"col-xs-3\">";
             echo $value;
-            echo "</td>";
+            echo "</div>";
         }
-        echo "</tr>";
+        echo "</div>";
     }
-    echo "</table>";
 } else {
     echo 'Wrong page';
 }
 ?>
+</div>
+</body>
+</html>
