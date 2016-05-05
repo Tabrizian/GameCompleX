@@ -9,7 +9,7 @@ class MySQLDatabase {
 
     public function connect() {
         $this->connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-        if(!$connection) {
+        if(!$this->connection) {
             echo "Error: Unable to connect to MySQL.".
                 mysqli_error($this->connection);
         }
@@ -20,7 +20,14 @@ class MySQLDatabase {
     }
 
     public function query($sql) {
-        return mysqli_query($connection, $sql);
+        $result = mysqli_query($this->connection, $sql);
+        $this->confirm_query($result);
+        return $result;
+    }
+
+    private function confirm_query($result) {
+        if(!$result)
+            die("Database query failed: " . mysqli_error($this->connection));
     }
 }
 
