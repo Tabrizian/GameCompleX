@@ -9,15 +9,16 @@
 require_once('../includes/database.php');
 if(isset($_POST['sql'])) {
     $data_set = $db->query($_POST['sql']);
-    while($row = $db->fetch_assoc($data_set)) {
-        echo "<div class=\"row\">";
-        foreach($row as $item=>$value) {
-            echo "<div class=\"col-xs-3\">";
-            echo $value;
+    if(gettype($data_set) != "boolean")
+        while($row = $db->fetch_assoc($data_set)) {
+            echo "<div class=\"row\">";
+            foreach($row as $item=>$value) {
+                echo "<div class=\"col-xs-3\">";
+                echo $value;
+                echo "</div>";
+            }
             echo "</div>";
         }
-        echo "</div>";
-    }
 } else {
     echo 'Wrong page';
 }

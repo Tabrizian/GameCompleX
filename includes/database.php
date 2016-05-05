@@ -25,6 +25,10 @@ class MySQLDatabase {
         return $result;
     }
 
+    public function num_rows($result_set) {
+        return mysqli_num_rows($result_set);
+    }
+
     private function confirm_query($result) {
         if(!$result)
             die("Database query failed: " . mysqli_error($this->connection));
