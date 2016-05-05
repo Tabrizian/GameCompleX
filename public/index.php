@@ -8,8 +8,9 @@
 <div class="container">
 <h1>Insert your query statement below!</h1>
 <form action="process.php" method="post" role="form">
-    <div class="form-group">
-    <textarea class="form-control" row="5" name="sql"></textarea>
+    <div class="form-group text-center">
+    <textarea class="form-control" row="5" name="sql"
+style="margin-bottom: 10px"></textarea>
     <button type="submit" class="btn btn-danger">Submit</button>
     </div>
 </form>

@@ -13,7 +13,7 @@ if(isset($_POST['sql'])) {
         while($row = $db->fetch_assoc($data_set)) {
             echo "<div class=\"row\">";
             foreach($row as $item=>$value) {
-                echo "<div class=\"col-xs-3\">";
+                echo "<div class=\"col-xs-1\">";
                 echo $value;
                 echo "</div>";
             }
