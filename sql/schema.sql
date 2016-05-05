@@ -1,3 +1,9 @@
+CREATE TABLE Time(
+    time_id int primary key,
+    start_time int,
+    end_time int
+);
+
 CREATE TABLE Game(
     game_id int primary key,
     active bool,
@@ -6,7 +12,8 @@ CREATE TABLE Game(
     building varchar(50),
     room_number int,
     game_type varchar(50),
-    time_id references Time(time_id)
+    time_id int,
+    foreign key (time_id) references Time(time_id)
 );
 
 CREATE TABLE Player(
@@ -22,18 +29,13 @@ CREATE TABLE Registration(
     end_time varchar (5)
 );
 
-CREATE TABLE Time(
-    time_id int primary key,
-    start_time int,
-    end_time int
-);
 
 CREATE TABLE Plays(
     player_id int,
     reg_id int,
     game_id int,
     primary key (player_id, reg_id, game_id),
-    player_id references Player(player_id),
-    reg_id references Registration(reg_id),
-    game_id references Game(game_id)
+    foreign key (player_id) references Player(player_id),
+    foreign key (reg_id) references Registration(reg_id),
+    foreign key (game_id) references Game(game_id)
 );
