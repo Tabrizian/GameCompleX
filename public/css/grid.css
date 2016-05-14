@@ -8,3 +8,8 @@ h4 {
   background-color: #eee;
   border: 1px solid #ddd;
 }
+
+.gray {
+    background-color: #808080;
+    border: 1px solid #000;
+}
