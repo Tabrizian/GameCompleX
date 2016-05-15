@@ -9,10 +9,8 @@
 require_once('../includes/database.php');
 if(isset($_POST['sql'])) {
     $data_set = $db->query($_POST['sql']);
-    if(!($data_set instanceof bool)) {
+    if(gettype($data_set) != "boolean") {
         $attribute_list = mysqli_fetch_fields($data_set);
-
-        print_r($attribute_list);
 
         if($attribute_list) {
             echo "<div class=\"row\">";
@@ -23,7 +21,7 @@ if(isset($_POST['sql'])) {
             }
             echo "</div>";
         }
-        if(gettype($data_set) != "boolean")
+        if(gettype($data_set) != "boolean") {
             while($row = $db->fetch_assoc($data_set)) {
                 echo "<div class=\"row\">";
                 foreach($row as $item=>$value) {
@@ -33,6 +31,8 @@ if(isset($_POST['sql'])) {
                 }
                 echo "</div>";
             }
+
+        }
     } else {
         if($data_set){
             echo "Success!";
